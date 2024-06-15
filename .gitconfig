@@ -1,9 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
-	email = andrew@andrewford.co.nz
 	name = Andrew Ford
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	email = andrew@andrewford.co.nz
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[pull]
+	rebase = true
