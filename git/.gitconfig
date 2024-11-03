@@ -1,20 +1,8 @@
 [user]
 	name = Andrew Ford
 	email = andrew@andrewford.co.nz
-[pull]
-	rebase = true
-[credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential	
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [core]
+	editor = code --wait
 	excludesfile = /Users/andrewford/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -24,10 +12,12 @@
 	trustExitCode = true
 [commit]
 	template = /Users/andrewford/.stCommitMsg
+[lfs]
+	helper = 
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-[http]
-	postBuffer = 157286400
+[init]
+	defaultBranch = main
