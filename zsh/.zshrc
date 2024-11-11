@@ -74,7 +74,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo gh textmate brew)
+plugins=(git sudo gh brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -311,9 +311,9 @@ mkv2dnxhd() {
 	done
 }
 
-# Parse URL to return content
+# Parse URL to return content LLM and MD ready
 parseUrl() {
-	curl "http://kakapo.tailf6fc79.ts.net:3000/parser?url=$1"
+	curl "https://r.jina.ai/$1"
 }
 
 
@@ -322,27 +322,28 @@ parseUrl() {
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshrc="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+# Aliases
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
-# alias lama="ollama serve"
-# alias lama="OLLAMA_ORIGINS=app://obsidian.md* ollama serve"
-alias tm="open -a /Applications/TextMate.app"
 alias kakapo="ssh andrewford@kakapo.local -t 'tmux new-session -s pi || tmux attach-session -t pi'"
-alias monogoup="docker pull mongodb/mongodb-community-server:latest && docker run --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest"
-alias postgresup="docker pull postgres:latest && docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD='password' -d postgres"
-alias openwebui="cd /Users/andrewford/Developer/open-webui/ && docker compose up"
-alias aiderllama="aider --model ollama/codestral:latest"
-alias interpreterllama="interpreter --api_base 'http://localhost:11434' --model ollama/codestral"
+alias monogoup="docker run -d \
+  --name mongodb \
+  -p 27017:27017 \
+  -v mongodb_data:/data/db \
+  --restart unless-stopped \
+  mongo:latest"
+alias postgresup="docker run --name postgres \
+  -e POSTGRES_PASSWORD=password \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_DB=postgres \
+  -p 5432:5432 \
+  -v postgres-data:/var/lib/postgresql/data \
+  -d postgres:latest"
+
 
 # iterm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
-
-# Aider 
-export OLLAMA_API_BASE=http://127.0.0.1:11434
 
 # pyenv - nvm for python
 export PYENV_ROOT="$HOME/.pyenv"
@@ -351,6 +352,11 @@ eval "$(pyenv init -)"
 
 # Created by `pipx` on 2024-06-17 04:59:03
 export PATH="$PATH:/Users/andrewford/.local/bin:/opt/homebrew/opt/curl/bin:/:$HOME/.gem/bin:$PATH"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # My custom prompt
 PROMPT='%F{green}$ %F{reset}'
