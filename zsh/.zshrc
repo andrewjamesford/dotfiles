@@ -339,6 +339,7 @@ alias postgresup="docker run --name postgres \
   -p 5432:5432 \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
+alias openwebui="docker run -d -p 3000:8080 -e WEBUI_AUTH=False -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
 
 
 # iterm
