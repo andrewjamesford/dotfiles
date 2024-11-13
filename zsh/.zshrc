@@ -74,10 +74,12 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo gh brew)
+plugins=(git sudo gh brew fzf common-aliases)
 
 source $ZSH/oh-my-zsh.sh
-
+source <(fzf --zsh)
+export FZF_BASE="/opt/homebrew/Cellar/fzf"
+export FZF_DEFAULT_COMMAND='**'
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -344,7 +346,6 @@ alias openwebui="docker run -d -p 3000:8080 -e WEBUI_AUTH=False -v open-webui:/a
 
 # iterm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-[[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
 
 # pyenv - nvm for python
 export PYENV_ROOT="$HOME/.pyenv"
