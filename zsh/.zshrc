@@ -342,6 +342,13 @@ alias postgresup="docker run --name postgres \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
 alias openwebui="docker run -d -p 3000:8080 -e WEBUI_AUTH=False -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
+alias kotaemon="# To run docker with platform linux/arm64
+docker run \
+-e GRADIO_SERVER_NAME=0.0.0.0 \
+-e GRADIO_SERVER_PORT=7860 \
+-p 7860:7860 -it --rm \
+--platform linux/arm64 \
+ghcr.io/cinnamon/kotaemon:main-lite"
 
 
 # iterm
