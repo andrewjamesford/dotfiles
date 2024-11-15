@@ -349,6 +349,7 @@ docker run \
 -p 7860:7860 -it --rm \
 --platform linux/arm64 \
 ghcr.io/cinnamon/kotaemon:main-lite"
+alias llama="ollama serve"
 
 
 # iterm
