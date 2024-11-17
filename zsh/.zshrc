@@ -318,6 +318,10 @@ parseUrl() {
 	curl "https://r.jina.ai/$1"
 }
 
+# Merge audio and video files
+mav() {
+	ffmpeg -i $1 -i $2 -c copy -map 0:v:0 -map 1:a:0 $3
+}
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
