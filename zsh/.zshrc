@@ -374,3 +374,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # My custom prompt
 PROMPT='%F{green}$ %F{reset}'
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
