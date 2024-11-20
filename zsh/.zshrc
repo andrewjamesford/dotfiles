@@ -63,7 +63,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -74,12 +74,19 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo gh brew fzf common-aliases)
+plugins=(
+	git 
+	sudo 
+	gh 
+	brew 
+	fzf
+)
 
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 export FZF_BASE="/opt/homebrew/Cellar/fzf"
-export FZF_DEFAULT_COMMAND='**'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
