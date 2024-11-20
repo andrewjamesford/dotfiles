@@ -353,8 +353,8 @@ docker run \
 -p 7860:7860 -it --rm \
 --platform linux/arm64 \
 ghcr.io/cinnamon/kotaemon:main-lite"
-alias llama="ollama serve"
-alias ollamaupdate="ollama list | awk 'NR>1 {print $1}' | xargs -I {} sh -c 'echo "Updating model: {}"; ollama pull {}; echo "--"' && echo "All models updated."
+alias oserve="ollama serve"
+alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
 
 
 # iterm
@@ -375,4 +375,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # My custom prompt
 PROMPT='%F{green}$ %F{reset}'
+# Enable autosuggestions in zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
