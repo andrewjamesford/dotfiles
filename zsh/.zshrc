@@ -359,6 +359,7 @@ docker run \
 ghcr.io/cinnamon/kotaemon:main-lite"
 alias oserve="ollama serve"
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 
 # iterm
