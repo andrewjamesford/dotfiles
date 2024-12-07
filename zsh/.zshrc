@@ -349,7 +349,7 @@ alias postgresup="docker run --name postgres \
   -p 5432:5432 \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
-alias openwebui="docker run -d -p 3000:8080 -e WEBUI_AUTH=False -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
+alias openwebui="docker run -d -p 3099:8080 -e WEBUI_AUTH=False -e OPENAI_API_BASE_URLS='https://api.openai.com/v1;https://api.mistral.ai/v1;https://models.inference.ai.azure.com;https://api.groq.com/openai/v1' -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
 alias kotaemon="# To run docker with platform linux/arm64
 docker run \
 -e GRADIO_SERVER_NAME=0.0.0.0 \
@@ -360,7 +360,6 @@ ghcr.io/cinnamon/kotaemon:main-lite"
 alias oserve="ollama serve"
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
 
 # iterm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -378,6 +377,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# ollama allow access from all hosts
 export OLLAMA_HOST="0.0.0.0"
 
 # My custom prompt
