@@ -380,6 +380,12 @@ export NVM_DIR="$HOME/.nvm"
 # ollama allow access from all hosts
 export OLLAMA_HOST="0.0.0.0"
 
+# ollama api base
+export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
+
+# Aider default
+export AIDER_MODEL=ollama/qwen2.5-coder:14b
+
 # My custom prompt
 PROMPT='%F{green}$ %F{reset}'
 # Enable autosuggestions in zsh
