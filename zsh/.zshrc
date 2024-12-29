@@ -11,7 +11,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="simple"
+# ZSH_THEME="simple"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,12 +78,14 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
 	sudo 
 	fzf
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 export FZF_BASE="/opt/homebrew/Cellar/fzf"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
 
 # User configuration
 
@@ -386,7 +389,13 @@ export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
 # Aider default
 export AIDER_MODEL=ollama/qwen2.5-coder:14b
 
-# My custom prompt
-PROMPT='%F{green}$ %F{reset}'
 # Enable autosuggestions in zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# My custom prompt
+prompt_context(){}
+
+prompt_dir() {
+  prompt_segment blue black "${PWD##*/}"
+}
