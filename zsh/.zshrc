@@ -386,6 +386,8 @@ export OLLAMA_HOST="0.0.0.0"
 # ollama api base
 export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
 
+export OLLAMA_ORIGINS=moz-extension://*
+
 # Aider default
 export AIDER_MODEL=ollama/qwen2.5-coder:14b
 
