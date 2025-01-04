@@ -81,11 +81,11 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+# FZF loaded - Ctrl + R (recall history) and Ctrl + T (traverse files)
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 export FZF_BASE="/opt/homebrew/Cellar/fzf"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
 
 # User configuration
 
@@ -102,8 +102,6 @@ else
   export EDITOR='code'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # param function for mkv2mp4 Remux
 mkv2mp4() {
@@ -249,6 +247,7 @@ ghce() {
 	GH_DEBUG="$GH_DEBUG" gh copilot explain "$@"
 }
 
+# Convert MKV to MP4
 mkv2mp3() {
 
 	filename=$1  # Replace with your actual filename
@@ -259,6 +258,7 @@ mkv2mp3() {
 	ffmpeg -i "$filename" -q:a 0 -map a "$temp_outputfile" && mv "$temp_outputfile" "$basename.mp3"
 }
 
+# Convert MKV to MP4
 mkv2mp4() {
 
 	filename=$1  # Replace with your actual filename
@@ -269,6 +269,7 @@ mkv2mp4() {
 	ffmpeg -i "$filename" -codec copy "$temp_outputfile" && mv "$temp_outputfile" "$basename.mp4"
 }
 
+# Convert MKV to MOV
 mkv2mov() {
 	# Use the current directory as input and output directory
 	INPUT_DIR=$(pwd)
@@ -293,6 +294,7 @@ mkv2mov() {
 	done
 }
 
+# Convert MKV to DNxHD
 mkv2dnxhd() {
 	# Use the current directory as input and output directory
 	INPUT_DIR=$(pwd)
@@ -393,9 +395,10 @@ export AIDER_MODEL=ollama/qwen2.5-coder:14b
 
 # Enable autosuggestions in zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Enable syntax highlighting in zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# My custom prompt
+# Hide name & host in terminal
 prompt_context(){}
 
 prompt_dir() {
