@@ -332,6 +332,11 @@ mav() {
 	ffmpeg -i $1 -i $2 -c copy -map 0:v:0 -map 1:a:0 $3
 }
 
+# Open Dash with query
+dash() {
+	open "dash://?query=$1"
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -365,6 +370,7 @@ ghcr.io/cinnamon/kotaemon:main-lite"
 alias oserve="ollama serve"
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
 
 # iterm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
