@@ -345,6 +345,7 @@ dash() {
 # Aliases
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
+alias ytm4a="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format m4a -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
 alias kakapo="ssh andrewford@kakapo.local -t 'tmux new-session -s pi || tmux attach-session -t pi'"
 alias monogoup="docker run -d \
   --name mongodb \

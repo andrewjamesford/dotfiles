@@ -14,12 +14,17 @@
 	template = /Users/andrewford/.stCommitMsg
 [lfs]
 	helper = 
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-[init]
-	defaultBranch = main
-[pull]
-	rebase = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
