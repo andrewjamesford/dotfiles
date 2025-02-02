@@ -45,7 +45,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -346,7 +346,6 @@ dash() {
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
 alias ytm4a="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format m4a -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
-alias kakapo="ssh andrewford@kakapo.local -t 'tmux new-session -s pi || tmux attach-session -t pi'"
 alias monogoup="docker run -d \
   --name mongodb \
   -p 27017:27017 \
@@ -372,17 +371,10 @@ alias oserve="ollama serve"
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-
-# iterm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # pyenv - nvm for python
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Created by `pipx` on 2024-06-17 04:59:03
-export PATH="$PATH:/Users/andrewford/.local/bin:/opt/homebrew/opt/curl/bin:/:$HOME/.gem/bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
