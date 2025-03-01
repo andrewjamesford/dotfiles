@@ -45,13 +45,13 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -102,6 +102,8 @@ else
   export EDITOR='code'
 fi
 
+# Aider Default
+export AIDER_EDITOR="code --wait"
 
 # param function for mkv2mp4 Remux
 mkv2mp4() {
@@ -390,7 +392,9 @@ export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
 #export OLLAMA_ORIGINS=moz-extension://*
 
 # Aider default
-export AIDER_MODEL=ollama/qwen2.5-coder:14b
+# export AIDER_MODEL=ollama/qwen2.5-coder:14b
+# export AIDER_MODEL=ollama/deepseek-r1:14b
+export AIDER_MODEL=ollama/deepseek-r1:32b
 
 # Enable autosuggestions in zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
