@@ -37,3 +37,11 @@
 - name: ollama_chat/deepseek-r1:32b
   extra_params:
     num_ctx: 65536
+
+- name: ollama/qwq:latest
+  extra_params:
+    num_ctx: 65536
+
+- name: ollama_chat/qwq:latest
+  extra_params:
+    num_ctx: 65536
