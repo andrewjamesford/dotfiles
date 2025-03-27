@@ -1,0 +1,17 @@
+*~
+.DS_Store
+public/**/*
+dist/**/*
+node_modules/**/*
+build/**/*
+.env
+.env.*
+*.swp
+*.swo
+.vscode/settings.json
+.vscode/extensions
+.idea
+Thumbs.db
+CLAUDE.md
+.aider*
+*.prompt.md
