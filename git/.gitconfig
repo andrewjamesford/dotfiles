@@ -21,3 +21,5 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[http]
+	postBuffer = 524288000
