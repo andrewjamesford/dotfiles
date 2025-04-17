@@ -79,6 +79,7 @@ plugins=(
 	sudo 
 	fzf
 	zsh-syntax-highlighting
+	dotenv
 )
 
 # FZF loaded - Ctrl + R (recall history) and Ctrl + T (traverse files)
@@ -407,3 +408,12 @@ prompt_context(){}
 prompt_dir() {
   prompt_segment blue black "${PWD##*/}"
 }
+
+PATH=~/.console-ninja/.bin:$PATH
+# pnpm
+export PNPM_HOME="/Users/andrewford/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

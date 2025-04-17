@@ -18,8 +18,8 @@
 # Main model:
 
 ## Specify the model to use for the main chat
-# model: ollama_chat/deepseek-r1:14b
-model: ollama_chat/qwq:latest
+model: ollama_chat/deepseek-r1:14b
+# model: ollama_chat/qwq:latest
 
 ## Use claude-3-opus-20240229 model for the main chat
 #opus: false
