@@ -66,7 +66,6 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy-mm-dd"
 
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -395,7 +394,8 @@ export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
 # Aider default
 # export AIDER_MODEL=ollama/qwen2.5-coder:14b
 # export AIDER_MODEL=ollama/deepseek-r1:14b
-export AIDER_MODEL=ollama/deepseek-r1:32b
+export AIDER_MODEL=deepseek/deepseek-chat
+# export AIDER_MODEL=gemini/gemini-2.5-pro-preview-03-25
 
 # Enable autosuggestions in zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -409,7 +409,6 @@ prompt_dir() {
   prompt_segment blue black "${PWD##*/}"
 }
 
-PATH=~/.console-ninja/.bin:$PATH
 # pnpm
 export PNPM_HOME="/Users/andrewford/Library/pnpm"
 case ":$PATH:" in
