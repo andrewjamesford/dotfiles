@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+source ~/ai-keys.sh
+
 # Suggestion Strategy
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
