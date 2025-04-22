@@ -17,12 +17,18 @@
 #############
 # Main model:
 
+model: openrouter/google/gemini-2.5-pro-exp-03-25:free
+weak-model: openrouter/google/gemini-2.0-flash-thinking-exp:free
+editor-model: openrouter/deepseek/deepseek-chat-v3-0324:free
+
 ## Specify the model to use for the main chat
 # model: ollama_chat/deepseek-r1:14b
 # model: ollama_chat/qwq:latest
 # model: gemini/gemini-2.5-pro-preview-03-25
-model: gemini/gemini-2.5-flash-preview-04-17
+# model: gemini/gemini-2.5-flash-preview-04-17
 # model: deepseek/deepseek-chat
+# model: openrouter/deepseek/deepseek-chat-v3-0324:free
+# model: openrouter/deepseek/deepseek-r1:free
 
 ## Use claude-3-opus-20240229 model for the main chat
 #opus: false
@@ -101,7 +107,7 @@ model: gemini/gemini-2.5-flash-preview-04-17
 #list-models: xxx
 
 ## Specify a file with aider model settings for unknown models
-model-settings-file: .aider.model.settings.yml
+model-settings-file: ~/.aider.model.settings.yml
 
 ## Specify a file with context window and costs for unknown models
 #model-metadata-file: .aider.model.metadata.json
