@@ -363,14 +363,17 @@ alias postgresup="docker run --name postgres \
   -p 5432:5432 \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
-alias openwebui="docker run -d -p 3099:8080 -e WEBUI_AUTH=False -e OPENAI_API_BASE_URLS='https://api.openai.com/v1;https://api.mistral.ai/v1;https://models.inference.ai.azure.com;https://api.groq.com/openai/v1' -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
-alias kotaemon="# To run docker with platform linux/arm64
-docker run \
--e GRADIO_SERVER_NAME=0.0.0.0 \
--e GRADIO_SERVER_PORT=7860 \
--p 7860:7860 -it --rm \
---platform linux/arm64 \
-ghcr.io/cinnamon/kotaemon:main-lite"
+
+# alias openwebui="docker run -d -p 3099:8080 -e WEBUI_AUTH=False -e OPENAI_API_BASE_URLS='https://api.openai.com/v1;https://api.mistral.ai/v1;https://models.inference.ai.azure.com;https://api.groq.com/openai/v1' -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
+alias openwebui="docker run -d \
+  -p 3000:8080 \
+  --add-host=host.docker.internal:host-gateway \
+  -v open-webui:/app/backend/data \
+  --name openwebui \
+  --restart always \
+  ghcr.io/open-webui/open-webui:main"
+
+
 alias oserve="ollama serve"
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
