@@ -1,3 +1,5 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -350,12 +352,14 @@ dash() {
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
 alias ytm4a="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format m4a -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
+
 alias monogoup="docker run -d \
   --name mongodb \
   -p 27017:27017 \
   -v mongodb_data:/data/db \
   --restart unless-stopped \
   mongo:latest"
+
 alias postgresup="docker run --name postgres \
   -e POSTGRES_PASSWORD=password \
   -e POSTGRES_USER=postgres \
@@ -364,7 +368,6 @@ alias postgresup="docker run --name postgres \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
 
-# alias openwebui="docker run -d -p 3099:8080 -e WEBUI_AUTH=False -e OPENAI_API_BASE_URLS='https://api.openai.com/v1;https://api.mistral.ai/v1;https://models.inference.ai.azure.com;https://api.groq.com/openai/v1' -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main"
 alias openwebui="docker run -d \
   -p 3000:8080 \
   --add-host=host.docker.internal:host-gateway \
@@ -403,7 +406,8 @@ export AIDER_MODEL=deepseek/deepseek-chat
 # export AIDER_MODEL=gemini/gemini-2.5-pro-preview-03-25
 
 # Enable autosuggestions in zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Enable syntax highlighting in zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -421,3 +425,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
