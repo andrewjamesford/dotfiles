@@ -17,6 +17,7 @@ CLAUDE.md
 .aider*
 *.prompt.md
 *lock.json
+1/*
 
 # Logs
 logs

@@ -1,11 +1,10 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Load environment variables from a file
 source ~/ai-keys.sh
 
 # Suggestion Strategy
@@ -70,8 +69,6 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy-mm-dd"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -91,12 +88,7 @@ source <(fzf --zsh)
 export FZF_BASE="/opt/homebrew/Cellar/fzf"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 export LANG=en_NZ.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -342,17 +334,21 @@ mav() {
 dash() {
 	open "dash://?query=$1"
 }
+# Set Node.js compile cache
+export NODE_COMPILE_CACHE=1
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+# ==============================================================
 # Aliases
+# yt-dlp aliases
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
 alias ytm4a="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format m4a -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
 
+# mongoDB alias to run in docker
 alias monogoup="docker run -d \
   --name mongodb \
   -p 27017:27017 \
@@ -360,6 +356,7 @@ alias monogoup="docker run -d \
   --restart unless-stopped \
   mongo:latest"
 
+# postgres alias to run in docker
 alias postgresup="docker run --name postgres \
   -e POSTGRES_PASSWORD=password \
   -e POSTGRES_USER=postgres \
@@ -368,6 +365,7 @@ alias postgresup="docker run --name postgres \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
 
+# openwebui alias to run in docker
 alias openwebui="docker run -d \
   -p 3000:8080 \
   --add-host=host.docker.internal:host-gateway \
@@ -376,8 +374,7 @@ alias openwebui="docker run -d \
   --restart always \
   ghcr.io/open-webui/open-webui:main"
 
-
-alias oserve="ollama serve"
+# update ollama models
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
@@ -385,11 +382,6 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # ollama allow access from all hosts
 export OLLAMA_HOST="0.0.0.0"
@@ -405,26 +397,16 @@ export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
 export AIDER_MODEL=deepseek/deepseek-chat
 # export AIDER_MODEL=gemini/gemini-2.5-pro-preview-03-25
 
-# Enable autosuggestions in zsh
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # Enable syntax highlighting in zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Hide name & host in terminal
 prompt_context(){}
 
+# prompt directory styling
 prompt_dir() {
   prompt_segment blue black "${PWD##*/}"
 }
-
-# pnpm
-export PNPM_HOME="/Users/andrewford/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
