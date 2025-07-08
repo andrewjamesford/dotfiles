@@ -3,7 +3,7 @@
 	email = andrew@andrewford.co.nz
 [core]
 	editor = code --wait
-	excludesfile = /Users/andrewford/.gitignore_global
+	excludesfile = /Users/andrewford/dotfiles/git/.gitignore_global
 [commit]
 	template = /Users/andrewford/.stCommitMsg
 [lfs]

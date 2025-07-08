@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Load environment variables from a file
-source ~/.keys
+#source ~/.keys
 
 # Suggestion Strategy
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -45,7 +45,10 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
+
+# Sets the terminal title
+print -Pn "\e]0;Terminal\e\\"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -335,7 +338,8 @@ dash() {
 	open "dash://?query=$1"
 }
 # Set Node.js compile cache
-export NODE_COMPILE_CACHE=1
+# https://www.perplexity.ai/search/2862adcb-7b89-4864-88d3-b42231532df4
+export NODE_COMPILE_CACHE="/tmp/node-compile-cache"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -410,3 +414,6 @@ prompt_dir() {
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
