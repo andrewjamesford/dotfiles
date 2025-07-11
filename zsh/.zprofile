@@ -13,3 +13,12 @@ export PATH="$PATH:/Users/andrewford/.local/bin"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh"
+
+##
+# Your previous /Users/andrewford/.zprofile file was backed up as /Users/andrewford/.zprofile.macports-saved_2025-07-09_at_09:26:06
+##
+
+# MacPorts Installer addition on 2025-07-09_at_09:26:06: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

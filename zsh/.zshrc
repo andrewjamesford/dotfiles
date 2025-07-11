@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Load environment variables from a file
-#source ~/.keys
+source ~/.keys
 
 # Suggestion Strategy
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
