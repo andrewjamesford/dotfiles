@@ -113,6 +113,13 @@ convertmp4() {
     ffmpeg -crf 18 -c:a aac 'converted.mp4' -i $1
 }
 
+kimi() {
+	export ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
+	export ANTHROPIC_AUTH_TOKEN=$KIMI_API_KEY
+	claude $1
+}
+
+
 # Suggest GitHub Copilot - ghcs
 ghcs() {
 	FUNCNAME="$funcstack[1]"
