@@ -2,12 +2,12 @@
 	name = Andrew Ford
 	email = andrew@andrewford.co.nz
 [core]
-	editor = code --wait
+	editor = zed --wait
 	excludesfile = /Users/andrewford/dotfiles/git/.gitignore_global
 [commit]
 	template = /Users/andrewford/.stCommitMsg
 [lfs]
-	helper = 
+	helper =
 [init]
 	defaultBranch = main
 [pull]

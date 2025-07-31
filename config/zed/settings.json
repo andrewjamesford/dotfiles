@@ -1,0 +1,60 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    }
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "language_models": {
+    "default": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "openai": {},
+    "anthropic": {},
+    "bedrock": {}
+  },
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "always_allow_tool_actions": true,
+    "play_sound_when_agent_done": true
+  },
+  "icon_theme": "JetBrains New UI Icons (Dark)",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "buffer_font_size": 14,
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
+  "buffer_font_features": {
+    "ligatures": true,
+    "bold": true,
+    "italic": true
+  },
+  "terminal": {
+    "font_size": 13,
+    "font_family": "JetBrainsMonoNL Nerd Font Mono"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Storm",
+    "dark": "Xcode Dusk"
+  }
+}
