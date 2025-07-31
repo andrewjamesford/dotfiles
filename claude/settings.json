@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -d \"Claude needs your attention\" ntfy.sh/$NTFY_TOPIC"
+          }
+        ]
+      }
+    ]
+  }
+}

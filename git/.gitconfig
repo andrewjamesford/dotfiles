@@ -23,3 +23,5 @@
 	clean = git-lfs clean -- %f
 [http]
 	postBuffer = 524288000
+[push]
+	autoSetupRemote = true

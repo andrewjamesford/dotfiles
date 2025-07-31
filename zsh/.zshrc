@@ -47,8 +47,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-# Sets the terminal title
-print -Pn "\e]0;Terminal\e\\"
+# Sets the terminal title to fixed value.
+# print -Pn "\e]0;Terminal\e\\"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
