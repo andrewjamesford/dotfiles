@@ -12,7 +12,6 @@ build/**/*
 .vscode/extensions
 .idea
 Thumbs.db
-CLAUDE.md
 .aider*
 *.prompt.md
 *lock.json
