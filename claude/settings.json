@@ -18,6 +18,7 @@
     "Bash(git:*)", // Safer: only allows git commands
     "Bash(gh:*)", // Safer: only allows GitHub CLI commands
     "Bash(gemini:*)", // Safer: only allows Gemini commands
+    "Bash(peekaboo:*)", // Safer: only allows Peekaboo commands
     "Glob",
     "Grep",
     "LS",
