@@ -15,7 +15,9 @@
   "allowedTools": [
     "Task",
     // "Bash", // ⚠️ Dangerous: allows all system commands
-    "Bash(git log:*)", // Safer: only allows git log commands
+    "Bash(git:*)", // Safer: only allows git commands
+    "Bash(gh:*)", // Safer: only allows GitHub CLI commands
+    "Bash(gemini:*)", // Safer: only allows Gemini commands
     "Glob",
     "Grep",
     "LS",

@@ -91,3 +91,11 @@ Code is clean if it can be understood easily – by everyone on the team. Clean 
 4. Needless Complexity.
 5. Needless Repetition.
 6. Opacity. The code is hard to understand.
+
+
+## Tools
+
+You have access to multiple CLI tools for example Gemini CLI and GH CLI that can help you with different tasks, such as subagent requests. Gemini can be invoked using the command line interface (CLI).
+
+- Gemini CLI - `gemini -a -p "<YOUR PROMPT>"` - with the -a All files, and -p prompt flags
+- GH CLI - `gh <command>` - with the -a All files, and -p prompt flags
