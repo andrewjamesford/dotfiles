@@ -11,5 +11,19 @@
         ]
       }
     ]
-  }
+  },
+  "allowedTools": [
+    "Task",
+    // "Bash", // ⚠️ Dangerous: allows all system commands
+    "Bash(git log:*)", // Safer: only allows git log commands
+    "Glob",
+    "Grep",
+    "LS",
+    "Read",
+    "Edit",
+    "MultiEdit",
+    "Write",
+    "WebFetch",
+    "WebSearch"
+  ]
 }
