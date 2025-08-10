@@ -61,8 +61,7 @@ Based on the analysis, I'll create a conventional commit message:
 The commit message will be concise, meaningful, and follow your project's conventions if I can detect them from recent commits.
 
 **Important**: I will NEVER:
-- Add "Co-authored-by" or any Claude signatures
-- Include "Generated with Claude Code" or similar messages
+- Add "(Co-)authored-by" or any Claude signatures
 - Modify git config or user credentials
 - Add any AI/assistant attribution to the commit
 
