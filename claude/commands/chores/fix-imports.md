@@ -1,3 +1,7 @@
+---
+description: "Fix import statements that broke after moving or renaming files"
+model: sonnet
+---
 # Fix Broken Imports
 
 I'll help fix import statements that broke after moving or renaming files.
@@ -10,16 +14,19 @@ First, let me analyze your project structure and identify any broken imports. I'
 4. **Find where files were moved** by searching for matching filenames
 
 Based on what I find, I'll:
+
 - Detect the import patterns used in your project
 - Handle the specific syntax for your language
 - Preserve your existing code style
 
 For each broken import, I'll:
+
 1. Show you the broken import with its location
 2. Search for the moved/renamed file
 3. Check for ambiguous matches
 
 **For ambiguous cases:**
+
 - If multiple files could match the import
 - I'll list all possible options
 - Show you the context

@@ -1,3 +1,8 @@
+---
+description: "Find and fix loose type declarations to improve code type safety"
+model: sonnet
+---
+
 # Cleanup Loose Types
 
 I'll help improve type safety in your code by finding and fixing loose type declarations.
@@ -19,6 +24,7 @@ I'll scan your codebase based on file extensions and patterns I find. For each i
 5. Apply the change after your confirmation
 
 My approach prioritizes:
+
 - **Safety**: Never break existing functionality
 - **Clarity**: Make types self-documenting
 - **Maintainability**: Use types that prevent future bugs

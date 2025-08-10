@@ -1,3 +1,7 @@
+---
+description: "Review code for potential security issues, bugs, and quality problems"
+model: sonnet
+---
 # Code Review
 
 I'll review your code for potential issues.
@@ -25,11 +29,13 @@ Let me examine the files we've been working on and any recent changes for:
    - Missing error handling
 
 For each issue I find, I'll:
+
 - Show you exactly where it is
 - Explain why it's a problem
 - Suggest how to fix it
 
 If I encounter errors during review:
+
 - I'll continue checking other files
 - Report what couldn't be analyzed
 - Focus on the code I can access

@@ -1,3 +1,7 @@
+---
+description: "Clean up redundant comments while preserving valuable documentation"
+model: sonnet
+---
 # Remove Obvious Comments
 
 I'll clean up redundant comments while preserving valuable documentation.
@@ -16,11 +20,13 @@ fi
 ```
 
 I'll analyze each file and remove comments that:
+
 - Simply restate what the code does
 - Add no value beyond the code itself
 - State the obvious (like "constructor" above a constructor)
 
 I'll preserve comments that:
+
 - Explain WHY something is done
 - Document complex business logic
 - Contain TODOs, FIXMEs, or HACKs
@@ -28,6 +34,7 @@ I'll preserve comments that:
 - Provide important context
 
 For each file with obvious comments, I'll:
+
 1. Show you the redundant comments I found
 2. Explain why they should be removed
 3. Show the cleaner version

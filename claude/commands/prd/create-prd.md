@@ -1,4 +1,9 @@
-# Rule: Generating a Product Requirements Document (PRD)
+---
+description: Create a Product Requirements Document
+model: opus
+---
+
+# Create a Product Requirements Document (PRD)
 
 ## Goal
 

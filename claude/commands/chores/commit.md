@@ -1,3 +1,8 @@
+---
+description: "Follow project conventions to git commit"
+allowed-tools: Bash(git)
+---
+
 # Smart Git Commit
 
 I'll analyze your changes and create a meaningful commit message.
@@ -27,11 +32,13 @@ git diff --stat
 ```
 
 Now I'll analyze the changes to determine:
+
 1. What files were modified
 2. The nature of changes (feature, fix, refactor, etc.)
 3. The scope/component affected
 
 If the analysis or commit encounters errors:
+
 - I'll explain what went wrong
 - Suggest how to resolve it
 - Ensure no partial commits occur
@@ -48,6 +55,7 @@ git diff --cached --name-status
 ```
 
 Based on the analysis, I'll create a conventional commit message:
+
 - **Type**: feat|fix|docs|style|refactor|test|chore
 - **Scope**: component or area affected (optional)
 - **Subject**: clear description in present tense
@@ -61,6 +69,7 @@ Based on the analysis, I'll create a conventional commit message:
 The commit message will be concise, meaningful, and follow your project's conventions if I can detect them from recent commits.
 
 **Important**: I will NEVER:
+
 - Add "(Co-)authored-by" or any Claude signatures
 - Modify git config or user credentials
 - Add any AI/assistant attribution to the commit
