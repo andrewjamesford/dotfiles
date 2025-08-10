@@ -14,7 +14,7 @@
   },
   "allowedTools": [
     "Task",
-    "Bash", // ⚠️ Dangerous: allows all system commands at your own risk
+    "Bash", // ⚠️ Dangerous: allows all system commands
     "Glob",
     "Grep",
     "LS",
