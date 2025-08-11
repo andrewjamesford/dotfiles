@@ -354,8 +354,8 @@ export NODE_COMPILE_CACHE="/tmp/node-compile-cache"
 # For a full list of active aliases, run `alias`.
 # ==============================================================
 # Aliases
-# Claude CLI alias
-alias cc="claude"
+# Claude CLI alias allowed tools
+alias cc="claude --allowedTools \"Bash(git:*) Bash(npm:*) Edit Glob Grep LS Read MultiEdit Write WebFetch WebSearch Task\""
 # yt-dlp aliases
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
