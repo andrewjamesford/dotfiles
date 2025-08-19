@@ -1,6 +1,3 @@
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -79,7 +76,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	sudo 
+	sudo
 	fzf
 	zsh-syntax-highlighting
 	dotenv
@@ -112,13 +109,6 @@ mkv2mp4() {
 convertmp4() {
     ffmpeg -crf 18 -c:a aac 'converted.mp4' -i $1
 }
-
-kimi() {
-	export ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
-	export ANTHROPIC_AUTH_TOKEN=$KIMI_API_KEY
-	claude $1
-}
-
 
 # Suggest GitHub Copilot - ghcs
 ghcs() {
@@ -289,10 +279,10 @@ mkv2mov() {
 	  base_name=$(basename "$input_file" .mkv)
 	  # Construct the output file name
 	  output_file="$OUTPUT_DIR/${base_name}.mov"
-  
+
 	  # Run ffmpeg to remux the file
 	  ffmpeg -i "$input_file" -map 0 -c copy "$output_file"
-  
+
 	  # Check if ffmpeg command was successful
 	  if [ $? -eq 0 ]; then
 	    echo "Successfully converted: $input_file to $output_file"
@@ -317,10 +307,10 @@ mkv2dnxhd() {
 	  base_name=$(basename "$input_file" .mkv)
 	  # Construct the output file name
 	  output_file="$OUTPUT_DIR/${base_name}.mov"
-  
+
 	  # Run ffmpeg to convert the file
 	  ffmpeg -i "$input_file" -c:v dnxhd -b:v "$BITRATE" -c:a pcm_s16le "$output_file"
-  
+
 	  # Check if ffmpeg command was successful
 	  if [ $? -eq 0 ]; then
 	    echo "Successfully converted: $input_file to $output_file"
@@ -344,6 +334,22 @@ mav() {
 dash() {
 	open "dash://?query=$1"
 }
+
+claude_code_tmux() {
+  branch="cc_$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+  if [ -z "$branch" ]; then
+    echo "Not in a git repo."
+    tmux
+  fi
+  if tmux has-session -t "$branch" 2>/dev/null; then
+    tmux attach-session -t "$branch"
+  else
+    tmux new-session -s "$branch" "claude"
+  fi
+}
+
+
+
 # Set Node.js compile cache
 # https://www.perplexity.ai/search/2862adcb-7b89-4864-88d3-b42231532df4
 export NODE_COMPILE_CACHE="/tmp/node-compile-cache"
@@ -355,7 +361,9 @@ export NODE_COMPILE_CACHE="/tmp/node-compile-cache"
 # ==============================================================
 # Aliases
 # Claude CLI alias allowed tools
-alias cc="claude --allowedTools \"Bash(git:*) Bash(npm:*) Edit Glob Grep LS Read MultiEdit Write WebFetch WebSearch Task\""
+alias cc="claude --dangerously-skip-permissions"
+# Claude code tmux session
+alias cct='claude_code_tmux'
 # yt-dlp aliases
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
@@ -404,12 +412,6 @@ export OLLAMA_API_BASE=http://127.0.0.1:11434 # Mac/Linux
 
 #export OLLAMA_ORIGINS=moz-extension://*
 
-# Aider default
-# export AIDER_MODEL=ollama/qwen2.5-coder:14b
-# export AIDER_MODEL=ollama/deepseek-r1:14b
-export AIDER_MODEL=deepseek/deepseek-chat
-# export AIDER_MODEL=gemini/gemini-2.5-pro-preview-03-25
-
 # Enable syntax highlighting in zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -421,8 +423,5 @@ prompt_dir() {
   prompt_segment blue black "${PWD##*/}"
 }
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
-
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
+export PATH="$HOME/bin:$PATH"
