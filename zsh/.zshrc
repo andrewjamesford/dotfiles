@@ -93,13 +93,10 @@ export LANG=en_NZ.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='code'
+  export EDITOR='zed'
 else
-  export EDITOR='code'
+  export EDITOR='zed'
 fi
-
-# Aider Default
-export AIDER_EDITOR="code --wait"
 
 # param function for mkv2mp4 Remux
 mkv2mp4() {
@@ -336,6 +333,7 @@ dash() {
 }
 
 claude_code_tmux() {
+  TERM_PROGRAM="Ghostty.app"
   branch="cc_$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
   if [ -z "$branch" ]; then
     echo "Not in a git repo."
@@ -364,6 +362,7 @@ export NODE_COMPILE_CACHE="/tmp/node-compile-cache"
 alias cc="claude --dangerously-skip-permissions"
 # Claude code tmux session
 alias cct='claude_code_tmux'
+alias mcppw="claude mcp add playwright npx '@playwright/mcp@latest'"
 # yt-dlp aliases
 alias ytmp4="yt-dlp -f 'bv[height=1080][ext=mp4]+ba[ext=m4a]' --merge-output-format mp4 "
 alias ytmp3="yt-dlp -x --add-metadata --compat-options embed-metadata --audio-format mp3 -o '%(playlist_index)s - %(artist)s - %(title)s.%(ext)s'"
@@ -385,15 +384,6 @@ alias postgresup="docker run --name postgres \
   -p 5432:5432 \
   -v postgres-data:/var/lib/postgresql/data \
   -d postgres:latest"
-
-# openwebui alias to run in docker
-alias openwebui="docker run -d \
-  -p 3000:8080 \
-  --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data \
-  --name openwebui \
-  --restart always \
-  ghcr.io/open-webui/open-webui:main"
 
 # update ollama models
 alias oupdate="ollama list | awk 'NR>1 {print \$1}' | xargs -I {} sh -c 'echo Updating model: {}; ollama pull {}; echo --' && echo All models updated."
@@ -424,4 +414,6 @@ prompt_dir() {
 }
 
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
-export PATH="$HOME/bin:$PATH"
+
+# export PATH="$HOME/.local/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
